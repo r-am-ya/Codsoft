@@ -25,3 +25,4 @@ Used is publicly available dataset from [Kaggle - Fraud Detection](https://www.k
 - **Accuracy:** ~100%
 - **AUC Score:** 0.98
 - **F1-score (fraud):** 0.62
+
