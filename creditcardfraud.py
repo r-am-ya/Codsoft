@@ -14,7 +14,7 @@ from imblearn.under_sampling import RandomUnderSampler
 from imblearn.pipeline import Pipeline
 import joblib
 
-# ===== LOAD DATASETS =====
+# LOADING DATASETS 
 try:
     train_df = pd.read_csv("fraudTrain.csv")
     test_df = pd.read_csv("fraudTest.csv")
@@ -27,7 +27,7 @@ except FileNotFoundError:
 train_df = train_df.loc[:, ~train_df.columns.str.contains('^Unnamed')]
 test_df = test_df.loc[:, ~test_df.columns.str.contains('^Unnamed')]
 
-# ===== FEATURE ENGINEERING =====
+# FEATURE ENGINEERING 
 for df in [train_df, test_df]:
     df['trans_date_trans_time'] = pd.to_datetime(df['trans_date_trans_time'])
     df['hour'] = df['trans_date_trans_time'].dt.hour
@@ -35,7 +35,7 @@ for df in [train_df, test_df]:
     df['weekday'] = df['trans_date_trans_time'].dt.weekday
     df.drop(['trans_date_trans_time'], axis=1, inplace=True)
 
-# ===== ENCODE CATEGORICAL COLUMNS =====
+# ENCODE CATEGORICAL COLUMNS 
 def encode_categorical(df):
     label_encoders = {}
     for col in df.select_dtypes(include=['object']).columns:
@@ -47,7 +47,7 @@ def encode_categorical(df):
 train_df, _ = encode_categorical(train_df)
 test_df, _ = encode_categorical(test_df)
 
-# ===== MERGE AND CLEAN =====
+# MERGE AND CLEAN 
 df = pd.concat([train_df, test_df], ignore_index=True)
 
 # Drop unnecessary columns (IDs, zip, etc.)
@@ -58,7 +58,7 @@ df.drop(columns=[col for col in cols_to_drop if col in df.columns], inplace=True
 scaler = StandardScaler()
 df['amt'] = scaler.fit_transform(df[['amt']])
 
-# ===== SPLIT FEATURES & TARGET =====
+# SPLIT FEATURES & TARGET 
 X = df.drop('is_fraud', axis=1)
 y = df['is_fraud']
 X_train, X_test, y_train, y_test = train_test_split(X, y, stratify=y, test_size=0.2, random_state=42)
@@ -66,7 +66,7 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, stratify=y, test_size=
 print("\n=== Class Distribution Before Resampling ===")
 print(y_train.value_counts())
 
-# ===== HANDLE CLASS IMBALANCE =====
+# HANDLE CLASS IMBALANCE 
 resampling = Pipeline([
     ('smote', SMOTE(sampling_strategy=0.5, random_state=42)),
     ('under', RandomUnderSampler(sampling_strategy=0.5, random_state=42))
