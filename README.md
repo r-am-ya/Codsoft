@@ -26,6 +26,9 @@ Used is publicly available dataset from [Kaggle - Fraud Detection](https://www.k
 - **AUC Score:** 0.98
 - **F1-score (fraud):** 0.62
 
+screenshots :
 ![feature_importance](https://github.com/user-attachments/assets/72edb0db-2b8b-42fd-914d-16cfb5624857)
+![precision_recall_curve](https://github.com/user-attachments/assets/99301d62-22f6-4cbd-b014-93404605dac6)
+
 
 
