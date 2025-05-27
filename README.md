@@ -1,34 +1,47 @@
 # Codsoft
 
-# 💳 Credit Card Fraud Detection
-This project is part of the **CodSoft Machine Learning Internship**.
+# 💼 CodSoft Internship - Machine Learning Projects
 
-🚀 Project Objective is
-Detect fraudulent credit card transactions using machine learning algorithms like Logistic Regression and Random Forest.
+This repository contains three major Machine Learning projects completed as part of the CodSoft internship program. Each project solves a real-world classification problem using supervised learning algorithms and Python's powerful data science ecosystem.
 
-📂 Dataset
-Used is publicly available dataset from [Kaggle - Fraud Detection](https://www.kaggle.com/datasets/kartik2112/fraud-detection)
+## 📁 Project List
 
-⚙️ Technologies :
-- Python, Pandas, NumPy
-- Scikit-learn, imbalanced-learn
-- Matplotlib, Seaborn
-  
-📊 Workflow :
-- Exploratory Data Analysis (EDA)
-- Categorical Encoding & Feature Engineering
-- SMOTE + Undersampling for class imbalance
-- Trained Logistic Regression & Random Forest
-- Visualized Feature Importances & Precision-Recall Curve
-  
-✅ Results (Random Forest):
-- **Accuracy:** ~100%
-- **AUC Score:** 0.98
-- **F1-score (fraud):** 0.62
+### 1. 🛡️ Credit Card Fraud Detection
 
-screenshots :
-![feature_importance](https://github.com/user-attachments/assets/72edb0db-2b8b-42fd-914d-16cfb5624857)
-![precision_recall_curve](https://github.com/user-attachments/assets/99301d62-22f6-4cbd-b014-93404605dac6)
+- **Objective**: Detect fraudulent credit card transactions based on anonymized financial data.
+- **Dataset**: [Kaggle Credit Card Fraud Detection](https://www.kaggle.com/mlg-ulb/creditcardfraud)
+- **Features**:
+  - Preprocessed anonymized numerical features (V1-V28)
+  - Imbalanced class problem (fraud vs non-fraud)
+- **Model(s)**: Logistic Regression, Random Forest
+- **Techniques**:
+  - Data balancing using `SMOTE`
+  - Model evaluation using confusion matrix, classification report, ROC AUC
+- **Libraries**: `pandas`, `sklearn`, `matplotlib`, `imbalanced-learn`
 
+### 2. 📉 Customer Churn Prediction
 
+- **Objective**: Predict whether a customer will churn (leave) based on their activity and demographic data.
+- **Dataset**: [Bank Customer Churn Prediction Dataset](https://www.kaggle.com/datasets/shantanudhakadd/bank-customer-churn-prediction)
+- **Features**:
+  - Customer demographics, bank usage behavior
+  - Binary churn label
+- **Model(s)**: Logistic Regression, Random Forest, Gradient Boosting
+- **Techniques**:
+  - Data cleaning and encoding (LabelEncoder, OneHotEncoder)
+  - Train-test split and accuracy evaluation
+- **Libraries**: `pandas`, `sklearn`, `matplotlib`, `seaborn`
 
+### 3. 📩 Spam SMS Detection
+
+- **Objective**: Classify SMS messages as spam or ham (legitimate).
+- **Dataset**: [SMS Spam Collection Dataset](https://www.kaggle.com/datasets/uciml/sms-spam-collection-dataset)
+- **Features**:
+  - Raw SMS text messages
+  - Labels: 'spam' or 'ham'
+- **Model(s)**: Naive Bayes
+- **Techniques**:
+  - Text preprocessing
+  - Feature extraction using TF-IDF
+  - Model training and accuracy evaluation
+- **Libraries**: `pandas`, `sklearn`
